@@ -1,0 +1,35 @@
+esphome:
+  name: distance
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "Gykir3XEW+QuacwqXcmDpAs1r8bL3irEs68ftGWd99A="
+
+ota:
+  password: "8a9279ceea3c191a5ef43f83a571c822"
+
+wifi:
+  ssid: "YourWifi"
+  password: "YourWifiPassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Distance Fallback Hotspot"
+    password: "DcM1TMicsqmH"
+
+captive_portal:
+    
+sensor:
+  - platform: ultrasonic
+    trigger_pin: D6
+    echo_pin: D5
+    name: "Parking Distance"
+    id: parking_distance
+    update_interval: 0.5s
