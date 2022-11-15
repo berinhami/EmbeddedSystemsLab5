@@ -1,0 +1,62 @@
+esphome:
+  name: lights
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "ye+Nz1WeveVQ+aNL9F4hD8gH9vwQbOlZ0fM2jjes3K0="
+
+ota:
+  password: "f4d2d969144cf808bfc64e57f028c3cf"
+
+wifi:
+  ssid: "YourWifi"
+  password: "YourWifiPassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Lights Fallback Hotspot"
+    password: "9RI4HNkQJAZY"
+
+captive_portal:
+    
+light:
+  - platform: binary
+    name: "redlight"
+    output: light_output1
+
+  - platform: binary
+    name: "yellowlight"
+    output: light_output2
+
+  - platform: binary
+    name: "greenlight"
+    output: light_output3
+
+  - platform: binary
+    name: "bluelight"
+    output: light_output4
+
+
+output:
+  - id: light_output1
+    platform: gpio
+    pin: D5
+  
+  - id: light_output2
+    platform: gpio
+    pin: D6
+
+  - id: light_output3
+    platform: gpio
+    pin: D7
+
+  - id: light_output4
+    platform: gpio
+    pin: D1
